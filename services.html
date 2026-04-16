@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Tòrr Civils &amp; Building Ltd</title>
+  <meta name="description" content="Civil engineering, groundworks, bespoke joinery, project management and hydraulic hose assembly across the Highlands and Islands.">
+  <style>
+    :root {
+      --green-deep:#1a1f1b;--green-mid:#232b24;--green-border:#2e3a30;
+      --silk:#e8e4dd;--silk-mid:#d4cfc8;--copper:#b87333;
+      --copper-grad:linear-gradient(135deg,#8b5a1a 0%,#c87830 30%,#e8a84e 52%,#c87830 72%,#9a6422 100%);
+      --ink:#1e1e1c;--ink-mid:#3a3832;--ink-light:#6a6560;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Georgia,'Times New Roman',serif;background:var(--silk);color:var(--ink);overflow-x:hidden}
+    img{display:block;max-width:100%}
+
+    nav{display:flex;justify-content:space-between;align-items:center;padding:22px 48px;background:var(--silk);border-bottom:1px solid var(--silk-mid);position:sticky;top:0;z-index:100}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+    .logo-icon{display:none}.logo-wordmark{height:44px;width:auto}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:var(--ink-light);font-family:Arial,sans-serif;font-size:12px;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--copper)}
+    .nav-cta{background:var(--copper-grad);color:#fff;padding:10px 22px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;box-shadow:0 2px 8px rgba(184,115,51,.35)}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:var(--ink)}
+    .nav-drawer{display:none;flex-direction:column;background:var(--silk);border-bottom:1px solid var(--silk-mid);padding:0 24px;overflow:hidden;max-height:0;transition:max-height .3s ease,padding .3s}
+    .nav-drawer.open{max-height:400px;padding:16px 24px 24px}
+    .nav-drawer a{color:var(--ink-light);font-family:Arial,sans-serif;font-size:13px;letter-spacing:.1em;text-decoration:none;text-transform:uppercase;padding:12px 0;border-bottom:1px solid var(--silk-mid)}
+    .nav-drawer a:last-of-type{border-bottom:none}
+    .nav-drawer .drawer-cta{margin-top:16px;background:var(--copper-grad);color:#fff;padding:12px 22px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;text-align:center}
+
+    .page-header{background:var(--green-deep);padding:80px 48px 72px;border-bottom:3px solid;border-image:var(--copper-grad) 1}
+    .page-label{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.22em;background:var(--copper-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;margin-bottom:20px;display:inline-block}
+    .page-title{font-size:48px;font-weight:400;color:#f0ece4;line-height:1.1;margin-bottom:24px}
+    .page-intro{font-size:17px;color:#9a9288;line-height:1.8;max-width:640px}
+
+    .service-nav{background:#fff;border-bottom:1px solid var(--silk-mid);padding:0 48px;display:flex;overflow-x:auto;position:sticky;top:81px;z-index:90}
+    .service-nav a{color:var(--ink-light);font-family:Arial,sans-serif;font-size:11px;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;padding:16px 24px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+    .service-nav a:hover{color:var(--copper);border-bottom-color:var(--copper)}
+
+    .service-section{display:grid;grid-template-columns:1fr 1fr;min-height:520px;border-bottom:1px solid var(--silk-mid)}
+    .service-section.reverse{direction:rtl}.service-section.reverse>*{direction:ltr}
+    .service-image{position:relative;overflow:hidden;background:var(--green-mid);min-height:400px;display:flex;align-items:center;justify-content:center}
+    .service-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
+    .service-image-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:400px}
+    .placeholder-label{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.2em;color:#4a5a4c;text-transform:uppercase}
+    .placeholder-icon{width:48px;height:48px;border:1px solid #2e3a30;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .placeholder-icon svg{width:22px;height:22px;stroke:#4a5a4c;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    .service-number{position:absolute;top:32px;left:32px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.2em;background:var(--copper-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase}
+    .service-content{padding:56px 52px;display:flex;flex-direction:column;justify-content:center;background:var(--silk)}
+    .service-section:nth-child(even) .service-content{background:#fff}
+    .service-tag{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.22em;background:var(--copper-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;margin-bottom:16px;display:inline-block}
+    .service-title{font-size:32px;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:24px}
+    .service-desc{font-size:16px;color:var(--ink-mid);line-height:1.85;margin-bottom:32px}
+    .service-bullets{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+    .service-bullets li{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);background:var(--silk-mid);padding:6px 12px}
+    .service-section:nth-child(even) .service-bullets li{background:var(--silk)}
+
+    .cta-strip{background:var(--green-deep);border-top:3px solid;border-image:var(--copper-grad) 1;padding:72px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+    .cta-strip-text h2{font-size:32px;font-weight:400;color:#f0ece4;margin-bottom:12px;line-height:1.2}
+    .cta-strip-text p{font-size:16px;color:#9a9288;line-height:1.7;max-width:500px}
+    .cta-strip-btn{display:inline-block;background:var(--copper-grad);color:#fff;padding:16px 36px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 16px rgba(184,115,51,.4);white-space:nowrap}
+
+    .ticker{background:var(--copper-grad);padding:12px 0;overflow:hidden;white-space:nowrap}
+    .ticker-inner{display:inline-block;animation:ticker 22s linear infinite}
+    .ticker-inner span{color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:0 40px;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    .footer-strip{background:var(--green-deep);border-top:2px solid var(--green-border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;font-family:Arial,sans-serif;font-size:11px;color:#5a5650;letter-spacing:.08em;flex-wrap:wrap;gap:12px}
+    .footer-strip a{color:#5a5650;text-decoration:none}
+    .footer-strip a:hover{color:var(--copper)}
+    .logo-footer{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-footer .logo-icon{height:36px;opacity:.5}
+    .logo-footer .logo-wordmark{height:32px;opacity:.6}
+
+    @media(max-width:768px){
+      nav{padding:18px 24px}
+      .nav-links,.nav-cta{display:none}
+      .nav-hamburger{display:flex}
+      .nav-drawer{display:flex}
+      .logo-icon{display:none}.logo-wordmark{height:34px}
+      .page-header-inner{flex-direction:column;gap:24px}
+      .page-header-text{flex:none;width:100%}
+      .page-header-icon-wrap{display:none}
+      .page-header{padding:52px 24px 48px}
+      .page-title{font-size:32px}
+      .service-nav{padding:0 24px;top:75px}
+      .service-nav a{padding:14px 16px;font-size:10px}
+      .service-section{grid-template-columns:1fr;direction:ltr!important}
+      .service-image{min-height:260px}
+      .service-content{padding:40px 24px}
+      .service-title{font-size:26px}
+      .cta-strip{padding:52px 24px;flex-direction:column;align-items:flex-start}
+      .cta-strip-text h2{font-size:26px}
+      .footer-strip{padding:24px;flex-direction:column;align-items:flex-start;gap:8px}
+    }
+    @media(max-width:480px){
+      .page-title{font-size:26px}
+      .service-title{font-size:22px}
+      .service-bullets li{font-size:10px}
+    }
+
+    /* PAGE HEADER TWO-COLUMN */
+    .page-header-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .page-header-text {
+      flex: 0 0 60%;
+    }
+
+    .page-header-icon-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-header-icon-wrap img {
+      width: 100%;
+      max-width: 480px;
+      opacity: 0.18;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo" aria-label="Torr Civils and Building Home">
+      <img src="images/logo_icon_copper.png" alt="" class="logo-icon">
+      <img src="images/logo_full_copper.png" alt="Torr Civils and Building Ltd" class="logo-wordmark">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="#">Case Studies</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Recruitment</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Get a Quote</button>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="#">Case Studies</a>
+    <a href="#">Team</a>
+    <a href="#">Recruitment</a>
+    <a href="#">Contact</a>
+    <button class="drawer-cta">Get a Quote</button>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-header-text">
+        <div class="page-label">What We Do</div>
+        <h1 class="page-title">Our Services</h1>
+        <p class="page-intro">Our versatility is built on a network of skilled tradespeople, subcontractors and partners. That network gives us an uncommon range of capability — and the depth to coordinate it properly across complex, multi-discipline projects.</p>
+      </div>
+      <div class="page-header-icon-wrap">
+        <img src="images/logo_icon_copper_bold.png" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </header>
+
+  <div class="service-nav">
+    <a href="#project-management">Project Management &amp; Design &amp; Build</a>
+    <a href="#civil-engineering">Civil Engineering &amp; Groundworks</a>
+    <a href="#joinery">Joinery</a>
+    <a href="#hydraulic-hose">Hydraulic Hose Repair</a>
+  </div>
+
+  <!-- SERVICE 01 — PROJECT MANAGEMENT & DESIGN & BUILD -->
+  <section class="service-section" id="project-management">
+    <div class="service-image">
+      <img src="images/Project_Management_Image.jpg" alt="Timber-clad building under construction with scaffolding, loch and mountains behind">
+      <div class="service-number">01 / 04</div>
+    </div>
+    <div class="service-content">
+      <div class="service-tag">Service 01</div>
+      <h2 class="service-title">Project Management &amp; Design &amp; Build</h2>
+      <p class="service-desc">We have long-standing relationships with architects, designers, engineers and consultants we can call on for both residential and commercial projects. We can take full responsibility for a project, from initial scope and design development through to handover — reducing pressure on clients unfamiliar with the construction process and reducing financial risk by having an experienced contractor involved from the outset.</p>
+      <p class="service-desc">We are equally comfortable acting as principal contractor or supporting a client's own team in a management capacity. Either way, we bring the same approach: clear communication, realistic programming, and the experience to anticipate problems before they become costly.</p>
+      <ul class="service-bullets">
+        <li>Feasibility &amp; Scoping</li><li>Design Coordination</li><li>Full Turnkey Delivery</li>
+        <li>Principal Contractor</li><li>Programme Management</li><li>Subcontractor Coordination</li>
+        <li>Cost Management</li><li>Consents &amp; Approvals</li>
+        <li>Remote &amp; Island Logistics</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICE 02 — CIVIL ENGINEERING & GROUNDWORKS -->
+  <section class="service-section reverse" id="civil-engineering">
+    <div class="service-image">
+      <img src="images/Civil_Engineering_Image.jpg" alt="CAT excavator and plant on active groundworks site with steel portal frame and Highland backdrop">
+      <div class="service-number">02 / 04</div>
+    </div>
+    <div class="service-content">
+      <div class="service-tag">Service 02</div>
+      <h2 class="service-title">Civil Engineering &amp; Groundworks</h2>
+      <p class="service-desc">Tòrr have a well resourced civil engineering capability: both in plant and equipment and experienced personnel. With decades of experience on major civil engineering projects between us, we are able to deliver a holistic service in house. All delivered by seasoned and qualified plant operators and groundworkers. Our fleet of modern plant is supplemented with specialist attachments including tilt rotators, rock breakers, screener buckets and selector grabs — creating a versatile package of resources for any eventuality.</p>
+      <ul class="service-bullets">
+        <li>Topographical Surveys</li><li>Site Engineering</li><li>Muck Shift</li>
+        <li>Road Construction</li><li>Rock Breaking &amp; Crushing</li><li>Drainage</li>
+        <li>Hard Landscaping</li><li>Concrete Works</li><li>Retaining Structures</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICE 03 — JOINERY -->
+  <section class="service-section" id="joinery">
+    <div class="service-image">
+      <img src="images/Joinery_Image.jpg" alt="Bespoke curved timber bar and interior fit-out — Raasay Distillery visitor centre">
+      <div class="service-number">03 / 04</div>
+    </div>
+    <div class="service-content">
+      <div class="service-tag">Service 03</div>
+      <h2 class="service-title">Joinery</h2>
+      <p class="service-desc">Joinery is at the core of our business and we have one of Skye &amp; Lochalsh's largest, most experienced in-house teams, supplemented by specialist subcontractors. New-build timber kits, renovations, cladding, decking, shuttering, roofing, kitchens, shopfitting and bespoke cabinetry are all within our skillset. See our case studies for examples of our work.</p>
+      <ul class="service-bullets">
+        <li>Structural Carpentry</li><li>Timber Kit Construction</li><li>Roof Construction</li>
+        <li>Timber Cladding &amp; Decking</li><li>Interior Fit-Out</li><li>Bespoke Furniture</li>
+        <li>Kitchen &amp; Bedroom Fitting</li><li>Shopfitting</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICE 04 — ON-SITE HYDRAULIC HOSE REPAIR -->
+  <section class="service-section reverse" id="hydraulic-hose">
+    <div class="service-image">
+      <img src="images/Hydraulic_Image.jpg" alt="Tòrr Civils hydraulic hose repair van — mobile on-site service across Skye and Lochalsh">
+      <div class="service-number">04 / 04</div>
+    </div>
+    <div class="service-content">
+      <div class="service-tag">Service 04</div>
+      <h2 class="service-title">On-Site Hydraulic Hose Repair</h2>
+      <p class="service-desc">We offer a mobile on-site hydraulic hose repair and assembly service across Skye &amp; Lochalsh. When a machine goes down on site, waiting days for a part to arrive isn't an option — we carry a comprehensive stock of hose, fittings and end connections to manufacture replacement hoses to specification on the spot, getting plant back in service with minimal downtime.</p>
+      <ul class="service-bullets">
+        <li>On-Site Hose Repairs</li><li>Hose Assembly &amp; Manufacture</li>
+        <li>Construction Plant</li><li>Agricultural Machinery</li>
+        <li>Fishing Vessels</li><li>Mobile Service — Skye &amp; Lochalsh</li>
+        <li>BFPA Trained Operatives</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="cta-strip-text">
+      <h2>Have a project in mind?</h2>
+      <p>Get in touch and we'll respond promptly. The more information you can share upfront — location, scope, timescale and any drawings — the quicker we can come back to you.</p>
+    </div>
+    <a href="contact.html" class="cta-strip-btn">Get a Quote</a>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span>Civil Engineering</span><span>Joinery</span><span>Groundworks</span><span>Design &amp; Build</span><span>Project Management</span><span>Fabrication</span><span>Hydraulic Hose Assembly</span><span>Remote Site Specialists</span>
+      <span>Civil Engineering</span><span>Joinery</span><span>Groundworks</span><span>Design &amp; Build</span><span>Project Management</span><span>Fabrication</span><span>Hydraulic Hose Assembly</span><span>Remote Site Specialists</span>
+    </div>
+  </div>
+
+  <footer class="footer-strip">
+    <a href="index.html" class="logo-footer" aria-label="Torr Civils and Building Home">
+      <img src="images/logo_icon_silk.png" alt="" class="logo-icon">
+      <img src="images/logo_full_silk.png" alt="Torr Civils and Building Ltd" class="logo-wordmark">
+    </a>
+    <span>&#169; 2025 T&#242;rr Civils &amp; Building Ltd &middot; <a href="https://www.torrcb.co.uk">www.torrcb.co.uk</a> &middot; Registered in Scotland SC621820</span>
+    <span>Specialist civil engineering and joinery contractor &middot; Highlands &amp; Islands</span>
+  </footer>
+
+  <script>
+    function toggleMenu(){document.getElementById('navDrawer').classList.toggle('open')}
+    window.addEventListener('resize',()=>{if(window.innerWidth>768)document.getElementById('navDrawer').classList.remove('open')})
+  </script>
+</body>
+</html>
