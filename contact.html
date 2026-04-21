@@ -723,6 +723,7 @@
         <input type="hidden" name="redirect" value="false">
         <input type="hidden" id="form_to" name="to" value="info@torrcb.co.uk">
         <input type="hidden" name="email" value="info@torrcb.co.uk">
+        <input type="hidden" name="hcaptcha_sitekey" value="ad48157e-b91c-4e3a-b7ee-9962675a4f5a">
         <input type="checkbox" name="botcheck" style="display:none;">
 
         <div class="form-row">
@@ -829,7 +830,7 @@
       }
 
       // Check CAPTCHA completed
-      const captchaEl = document.querySelector('[name="h-captcha-response"]');
+      const captchaEl = document.querySelector('textarea[name="h-captcha-response"]');
       if (!captchaEl || !captchaEl.value) {
         alert('Please complete the "I am human" check before sending.');
         return;
@@ -842,25 +843,15 @@
         const isHose  = form.service.value === 'Hydraulic Hose Assembly';
         const toEmail = isHose ? 'plant@torrcb.co.uk' : 'info@torrcb.co.uk';
 
-        const hCaptchaResponse = document.querySelector('[name="h-captcha-response"]');
-        const payload = {
-          access_key:  'd3d8c4cd-c0a3-4076-bd4d-8a52cd936f6e',
-          subject:     'Website Enquiry — Tòrr Civils & Building',
-          from_name:   'Tòrr Website',
-          to:          toEmail,
-          email:       toEmail,
-          name:        form.name.value.trim() || 'Not provided',
-          phone:       phone || 'Not provided',
-          service:     form.service.value || 'Not selected',
-          contact_pref: form.contact_pref.value,
-          message:     message || 'Not provided',
-          'h-captcha-response': hCaptchaResponse ? hCaptchaResponse.value : ''
-        };
+        // Update routing field before building FormData
+        document.getElementById('form_to').value = toEmail;
+        document.querySelector('input[name="email"]').value = toEmail;
+
+        const data = new FormData(form);
 
         const res  = await fetch('https://api.web3forms.com/submit', {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body:    JSON.stringify(payload)
+          method: 'POST',
+          body:   data
         });
         const json = await res.json();
 
