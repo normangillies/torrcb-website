@@ -828,6 +828,13 @@
         return;
       }
 
+      // Check CAPTCHA completed
+      const captchaEl = document.querySelector('[name="h-captcha-response"]');
+      if (!captchaEl || !captchaEl.value) {
+        alert('Please complete the "I am human" check before sending.');
+        return;
+      }
+
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
@@ -835,6 +842,7 @@
         const isHose  = form.service.value === 'Hydraulic Hose Assembly';
         const toEmail = isHose ? 'plant@torrcb.co.uk' : 'info@torrcb.co.uk';
 
+        const hCaptchaResponse = document.querySelector('[name="h-captcha-response"]');
         const payload = {
           access_key:  'd3d8c4cd-c0a3-4076-bd4d-8a52cd936f6e',
           subject:     'Website Enquiry — Tòrr Civils & Building',
@@ -846,7 +854,7 @@
           service:     form.service.value || 'Not selected',
           contact_pref: form.contact_pref.value,
           message:     message || 'Not provided',
-          'h-captcha-response': form['h-captcha-response'] ? form['h-captcha-response'].value : ''
+          'h-captcha-response': hCaptchaResponse ? hCaptchaResponse.value : ''
         };
 
         const res  = await fetch('https://api.web3forms.com/submit', {
