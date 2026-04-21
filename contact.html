@@ -722,6 +722,7 @@
         <input type="hidden" name="from_name" value="Tòrr Website">
         <input type="hidden" name="redirect" value="false">
         <input type="hidden" id="form_to" name="to" value="info@torrcb.co.uk">
+        <input type="hidden" name="email" value="info@torrcb.co.uk">
         <input type="checkbox" name="botcheck" style="display:none;">
 
         <div class="form-row">
@@ -831,10 +832,27 @@
       btn.disabled = true;
 
       try {
-        const data = new FormData(form);
+        const isHose  = form.service.value === 'Hydraulic Hose Assembly';
+        const toEmail = isHose ? 'plant@torrcb.co.uk' : 'info@torrcb.co.uk';
+
+        const payload = {
+          access_key:  'd3d8c4cd-c0a3-4076-bd4d-8a52cd936f6e',
+          subject:     'Website Enquiry — Tòrr Civils & Building',
+          from_name:   'Tòrr Website',
+          to:          toEmail,
+          email:       toEmail,
+          name:        form.name.value.trim() || 'Not provided',
+          phone:       phone || 'Not provided',
+          service:     form.service.value || 'Not selected',
+          contact_pref: form.contact_pref.value,
+          message:     message || 'Not provided',
+          'h-captcha-response': form['h-captcha-response'] ? form['h-captcha-response'].value : ''
+        };
+
         const res  = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: data
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(payload)
         });
         const json = await res.json();
 
@@ -845,6 +863,7 @@
           throw new Error(json.message);
         }
       } catch (err) {
+        console.error(err);
         btn.textContent = 'Send Enquiry';
         btn.disabled = false;
         alert('Something went wrong — please try again or call us on 01478 620330.');
