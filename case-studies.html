@@ -252,6 +252,26 @@
       padding: 5px 12px;
     }
 
+    .hero-gallery {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-thumb {
+      width: 64px;
+      height: 48px;
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.55;
+      border: 2px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+
+    .hero-thumb:hover { opacity: 0.85; }
+    .hero-thumb.active { opacity: 1; border-color: var(--copper); }
+
     /* ── FILTER BAR ────────────────────────────────────── */
     .filter-bar {
       background: var(--silk);
@@ -415,6 +435,33 @@
       object-fit: cover;
       display: block;
       background: var(--green-mid);
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 3px;
+      padding: 3px;
+      background: var(--silk-mid);
+    }
+
+    .modal-gallery img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .modal-gallery img:hover { opacity: 0.85; }
+
+    .modal-hero-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
     }
 
     .modal-img-placeholder {
@@ -643,9 +690,7 @@
   <!-- HERO CASE STUDY — Raasay Distillery Warehouses -->
   <div class="hero-case">
     <div class="hero-case-img">
-      <div class="img-placeholder">
-        <span>Photo coming soon<br>Raasay Distillery Warehouses</span>
-      </div>
+      <img class="modal-hero-img" id="warehouse-hero" src="images/warehouse_1.jpg" alt="Raasay Distillery Warehouses — completed exterior">
     </div>
     <div class="hero-case-body">
       <div class="case-number">Featured Project</div>
@@ -655,6 +700,14 @@
       <div class="case-services">
         <span class="case-tag">Civil Engineering &amp; Groundworks</span>
         <span class="case-tag">Project Management</span>
+      </div>
+      <div class="hero-gallery">
+        <img src="images/warehouse_1.jpg" alt="Completed exterior" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb active">
+        <img src="images/warehouse_2.jpg" alt="Access road at dusk" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb">
+        <img src="images/warehouse_4.jpg" alt="Crane erecting steelwork" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb">
+        <img src="images/warehouse_7.jpg" alt="Rock breaking" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb">
+        <img src="images/warehouse_8.jpg" alt="Foundation strip" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb">
+        <img src="images/warehouse_9.jpg" alt="Foundations laid" onclick="swapHero('warehouse-hero', this.src, this)" class="hero-thumb">
       </div>
     </div>
   </div>
@@ -675,9 +728,7 @@
     <!-- Card 1: Na Bothain -->
     <div class="case-card" data-services="civil pm building fabrication" onclick="openModal('bothain')">
       <div class="case-card-img">
-        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
-          <span>Photo coming soon</span>
-        </div>
+        <img src="images/bothain.jpg" alt="Na Bothain — Raasay Distillery guest cabins completed">
       </div>
       <div class="case-card-body">
         <h3>Raasay Distillery — Na Bothain</h3>
@@ -714,9 +765,7 @@
     <!-- Card 3: Sconser Shorebase -->
     <div class="case-card" data-services="civil pm building fabrication" onclick="openModal('sconser')">
       <div class="case-card-img">
-        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
-          <span>Photo coming soon</span>
-        </div>
+        <img src="images/mowi_1.jpg" alt="Sconser Shorebase — completed gable end replacement">
       </div>
       <div class="case-card-body">
         <h3>Sconser Shorebase — Gable End Replacement</h3>
@@ -772,7 +821,16 @@
   <div class="modal-overlay" id="modal-bothain" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-bothain')">✕</button>
-      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <img class="modal-hero-img" id="bothain-hero" src="images/bothain.jpg" alt="Na Bothain — Raasay Distillery guest cabins">
+      <div class="modal-gallery">
+        <img src="images/bothain_2.jpg" alt="Na Bothain — gabion retaining wall" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_3.jpg" alt="Na Bothain — cabin platform construction" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_4.jpg" alt="Na Bothain — groundworks" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_5.jpg" alt="Na Bothain — roof construction" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_6.jpg" alt="Na Bothain — foundations" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_7.jpg" alt="Na Bothain — gabion wall and excavator" onclick="swapHero('bothain-hero', this.src, this)">
+        <img src="images/bothain_8.jpg" alt="Na Bothain — completed cabin exterior" onclick="swapHero('bothain-hero', this.src, this)">
+      </div>
       <div class="modal-body">
         <h2>Raasay Distillery — Na Bothain</h2>
         <span class="modal-location">Borodale, Isle of Raasay</span>
@@ -791,7 +849,7 @@
   <div class="modal-overlay" id="modal-inverarish" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-inverarish')">✕</button>
-      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-img-placeholder"><span>Photos coming soon</span></div>
       <div class="modal-body">
         <h2>Inverarish Social Housing Development</h2>
         <span class="modal-location">Inverarish, Isle of Raasay</span>
@@ -809,7 +867,7 @@
   <div class="modal-overlay" id="modal-sconser" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-sconser')">✕</button>
-      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <img class="modal-hero-img" src="images/mowi_1.jpg" alt="Sconser Shorebase — completed gable end">
       <div class="modal-body">
         <h2>Sconser Shorebase — Gable End Replacement</h2>
         <span class="modal-location">Sconser, Isle of Skye</span>
@@ -874,6 +932,19 @@
   </footer>
 
   <script>
+    function swapHero(heroId, src, clickedThumb) {
+      const hero = document.getElementById(heroId);
+      if (hero) {
+        hero.style.opacity = '0';
+        setTimeout(() => { hero.src = src; hero.style.opacity = '1'; }, 200);
+      }
+      if (clickedThumb) {
+        const siblings = clickedThumb.closest('.hero-gallery, .modal-gallery');
+        if (siblings) siblings.querySelectorAll('.hero-thumb').forEach(t => t.classList.remove('active'));
+        clickedThumb.classList.add('active');
+      }
+    }
+
     function toggleMenu() {
       document.getElementById('navDrawer').classList.toggle('open');
     }
