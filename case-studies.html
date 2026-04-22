@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies — Tòrr Civils &amp; Building Ltd</title>
+  <meta name="description" content="Project case studies from Tòrr Civils &amp; Building Ltd — civil engineering, groundworks, general building and joinery across Skye, Lochalsh and the Highlands &amp; Islands.">
+
+  <style>
+    :root {
+      --green-deep:   #1a1f1b;
+      --green-mid:    #232b24;
+      --green-border: #2e3a30;
+      --silk:         #e8e4dd;
+      --silk-mid:     #d4cfc8;
+      --silk-dark:    #b0a89e;
+      --copper:       #b87333;
+      --copper-light: #d4944a;
+      --copper-grad:  linear-gradient(135deg, #8b5a1a 0%, #c87830 30%, #e8a84e 52%, #c87830 72%, #9a6422 100%);
+      --ink:          #1e1e1c;
+      --ink-mid:      #3a3832;
+      --ink-light:    #6a6560;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--silk); color: var(--ink); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ───────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 48px;
+      background: var(--silk);
+      border-bottom: 1px solid var(--silk-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .logo-icon { display: none; }
+    .logo-wordmark { height: 44px; width: auto; display: block; }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--ink-light);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--copper); }
+
+    .nav-tel { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.04em; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .nav-tel:hover { color: var(--copper); }
+
+    .nav-cta {
+      background: var(--copper-grad);
+      color: #fff;
+      padding: 10px 22px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(184,115,51,0.35);
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); transition: all 0.25s; }
+
+    .nav-drawer {
+      display: none;
+      flex-direction: column;
+      background: var(--silk);
+      border-bottom: 1px solid var(--silk-mid);
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .nav-drawer.open { max-height: 400px; padding: 16px 24px 24px; }
+    .nav-drawer a {
+      color: var(--ink-light);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--silk-mid);
+    }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .nav-drawer .drawer-cta {
+      margin-top: 16px;
+      background: var(--copper-grad);
+      color: #fff;
+      padding: 12px 22px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ── PAGE HEADER ───────────────────────────────────── */
+    .page-header {
+      background: var(--green-deep);
+      border-bottom: 3px solid;
+      border-image: var(--copper-grad) 1;
+      padding: 64px 48px 56px;
+    }
+
+    .section-label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      background: var(--copper-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .page-header h1 {
+      font-size: 38px;
+      font-weight: 400;
+      color: #f0ece4;
+      line-height: 1.2;
+      max-width: 680px;
+    }
+
+    /* ── HERO CASE STUDY ───────────────────────────────── */
+    .hero-case {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: 520px;
+      border-bottom: 1px solid var(--silk-mid);
+    }
+
+    .hero-case-img {
+      position: relative;
+      overflow: hidden;
+      background: var(--green-mid);
+    }
+
+    .hero-case-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-case-img:hover img { transform: scale(1.03); }
+
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: var(--green-mid);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .img-placeholder span {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #4a5048;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-case-body {
+      background: var(--green-deep);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-number {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: #4a5048;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-case-body h2 {
+      font-size: 30px;
+      font-weight: 400;
+      color: #f0ece4;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .hero-case-body .case-location {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--copper-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+      display: inline-block;
+    }
+
+    .hero-case-body .case-desc {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #9a9590;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .case-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .case-tag {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      border: 1px solid #2e3a30;
+      padding: 5px 12px;
+    }
+
+    /* ── FILTER BAR ────────────────────────────────────── */
+    .filter-bar {
+      background: var(--silk);
+      border-bottom: 1px solid var(--silk-mid);
+      padding: 20px 48px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silk-dark);
+      margin-right: 8px;
+    }
+
+    .filter-btn {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: none;
+      border: 1px solid var(--silk-mid);
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--green-deep);
+      color: var(--copper-light);
+      border-color: var(--green-deep);
+    }
+
+    /* ── GRID ──────────────────────────────────────────── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--silk-mid);
+      padding: 2px;
+    }
+
+    .case-card {
+      background: var(--silk);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .case-card:hover { background: #f0ece4; }
+
+    .case-card-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--green-mid);
+    }
+
+    .case-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      filter: grayscale(10%);
+    }
+
+    .case-card:hover .case-card-img img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .case-card-body {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-top: 2px solid;
+      border-image: var(--copper-grad) 1;
+    }
+
+    .case-card-body h3 {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .case-card-location {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--copper-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .case-card-desc {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .case-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .case-card-tag {
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border: 1px solid var(--silk-mid);
+      padding: 4px 10px;
+    }
+
+    /* ── MODAL ─────────────────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 31, 27, 0.88);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--silk);
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: var(--green-mid);
+    }
+
+    .modal-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--green-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-img-placeholder span {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #4a5048;
+      text-transform: uppercase;
+    }
+
+    .modal-body {
+      padding: 36px 40px 40px;
+    }
+
+    .modal-body h2 {
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .modal-location {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--copper-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .modal-desc {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .modal-services-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silk-dark);
+      margin-bottom: 10px;
+    }
+
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--green-deep);
+      border: none;
+      color: #f0ece4;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover { background: var(--copper); }
+
+    /* ── CTA STRIP ─────────────────────────────────────── */
+    .cta-strip {
+      background: var(--green-deep);
+      border-top: 3px solid;
+      border-image: var(--copper-grad) 1;
+      padding: 56px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-strip h2 {
+      font-size: 28px;
+      font-weight: 400;
+      color: #f0ece4;
+      max-width: 480px;
+      line-height: 1.3;
+    }
+
+    .cta-strip-btn {
+      background: var(--copper-grad);
+      color: #fff;
+      padding: 14px 36px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 16px rgba(184,115,51,0.35);
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-strip-btn:hover { opacity: 0.88; }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    .footer-strip {
+      background: var(--green-deep);
+      border-top: 2px solid var(--green-border);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #5a5650;
+      letter-spacing: 0.08em;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-strip a { color: #5a5650; text-decoration: none; transition: color 0.2s; }
+    .footer-strip a:hover { color: var(--copper-light); }
+    .logo-footer { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-footer .logo-wordmark { height: 32px; opacity: 0.6; }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .cases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-case { grid-template-columns: 1fr; }
+      .hero-case-img { min-height: 320px; }
+      .hero-case-body { padding: 40px 32px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      .nav-links, .nav-tel, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { display: flex; }
+      .logo-wordmark { height: 34px; }
+
+      .page-header { padding: 48px 24px 40px; }
+      .page-header h1 { font-size: 28px; }
+
+      .filter-bar { padding: 16px 24px; }
+      .cases-grid { grid-template-columns: 1fr; }
+
+      .cta-strip { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-strip { padding: 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+
+      .modal-body { padding: 24px; }
+      .modal-body h2 { font-size: 22px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-header { padding: 40px 20px 32px; }
+      .page-header h1 { font-size: 24px; }
+      .hero-case-body { padding: 32px 20px; }
+      .hero-case-body h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo" aria-label="Tòrr Civils & Building — Home">
+      <img src="images/logo_icon_copper.png" alt="" class="logo-icon">
+      <img src="images/logo_full_copper.png" alt="Tòrr Civils &amp; Building Ltd" class="logo-wordmark">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="case-studies.html" class="active">Case Studies</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="#">Recruitment</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="tel:+441478620330" class="nav-tel">01478 620330</a>
+    <button class="nav-cta" onclick="window.location='contact.html'">Get a Quote</button>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="team.html">Team</a>
+    <a href="#">Recruitment</a>
+    <a href="contact.html">Contact</a>
+    <a href="tel:+441478620330" style="color: var(--copper); letter-spacing: 0.06em;">01478 620330</a>
+    <button class="drawer-cta">Get a Quote</button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="section-label">Our Work</div>
+    <h1>Projects we're proud of.</h1>
+  </div>
+
+  <!-- HERO CASE STUDY — Raasay Distillery Warehouses -->
+  <div class="hero-case">
+    <div class="hero-case-img">
+      <div class="img-placeholder">
+        <span>Photo coming soon<br>Raasay Distillery Warehouses</span>
+      </div>
+    </div>
+    <div class="hero-case-body">
+      <div class="case-number">Featured Project</div>
+      <h2>Raasay Distillery Warehouses</h2>
+      <span class="case-location">Isle of Raasay</span>
+      <p class="case-desc">Principal Contractor for Raasay Distillery's new whisky maturation warehousing. Including muck shift, rock breaking and crushing of c.3,000t of rock to generate all subbase on site. Site batching of 400m³ of C35 concrete for foundations and floor slabs. Diversions of water main and undergrounding of overhead powerlines. Completed within 6 months and 20% under budget.</p>
+      <div class="case-services">
+        <span class="case-tag">Civil Engineering &amp; Groundworks</span>
+        <span class="case-tag">Project Management</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter by</span>
+    <button class="filter-btn active" onclick="filterCases('all', this)">All Projects</button>
+    <button class="filter-btn" onclick="filterCases('civil', this)">Civil Engineering</button>
+    <button class="filter-btn" onclick="filterCases('building', this)">General Building</button>
+    <button class="filter-btn" onclick="filterCases('pm', this)">Project Management</button>
+    <button class="filter-btn" onclick="filterCases('joinery', this)">Joinery</button>
+  </div>
+
+  <!-- CASES GRID -->
+  <div class="cases-grid" id="casesGrid">
+
+    <!-- Card 1: Na Bothain -->
+    <div class="case-card" data-services="civil pm building fabrication" onclick="openModal('bothain')">
+      <div class="case-card-img">
+        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <h3>Raasay Distillery — Na Bothain</h3>
+        <span class="case-card-location">Borodale, Isle of Raasay</span>
+        <p class="case-card-desc">Design &amp; build of five bespoke guest cabins including groundworks, structure, gabion retaining structures, fabricated steel supports and staircases, district heating, sauna &amp; plunge pool and decking.</p>
+        <div class="case-card-tags">
+          <span class="case-card-tag">Civil Engineering</span>
+          <span class="case-card-tag">Project Management</span>
+          <span class="case-card-tag">General Building</span>
+          <span class="case-card-tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Inverarish Social Housing -->
+    <div class="case-card" data-services="building pm civil" onclick="openModal('inverarish')">
+      <div class="case-card-img">
+        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <h3>Inverarish Social Housing Development</h3>
+        <span class="case-card-location">Inverarish, Isle of Raasay</span>
+        <p class="case-card-desc">Full renovation of three terraced houses for Raasay Development Trust for social housing, including attic conversions, underpinning to create a basement room and installation of air source heat pumps.</p>
+        <div class="case-card-tags">
+          <span class="case-card-tag">Design &amp; Build</span>
+          <span class="case-card-tag">General Building</span>
+          <span class="case-card-tag">Groundworks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Sconser Shorebase -->
+    <div class="case-card" data-services="civil pm building fabrication" onclick="openModal('sconser')">
+      <div class="case-card-img">
+        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <h3>Sconser Shorebase — Gable End Replacement</h3>
+        <span class="case-card-location">Sconser, Isle of Skye</span>
+        <p class="case-card-desc">Demolition of accident-damaged block gable end, fabrication of new steelwork, new roller shutter door, concrete apron and blockwork replacement.</p>
+        <div class="case-card-tags">
+          <span class="case-card-tag">Civil Engineering</span>
+          <span class="case-card-tag">Project Management</span>
+          <span class="case-card-tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 10 Mill Place -->
+    <div class="case-card" data-services="building pm" onclick="openModal('millplace')">
+      <div class="case-card-img">
+        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <h3>10 Mill Place</h3>
+        <span class="case-card-location">Isle of Raasay</span>
+        <p class="case-card-desc">Full, back-to-the-wall renovation of a 19th century cottage — redesigned to remove almost half the original project value, with Tòrr taking responsibility for all design, approvals, consents and delivery.</p>
+        <div class="case-card-tags">
+          <span class="case-card-tag">Design &amp; Build</span>
+          <span class="case-card-tag">General Building</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Ullinish House -->
+    <div class="case-card" data-services="joinery building" onclick="openModal('ullinish')">
+      <div class="case-card-img">
+        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <h3>Ullinish House</h3>
+        <span class="case-card-location">Ullinish, Isle of Skye</span>
+        <p class="case-card-desc">Joinery works for new roof and fit-out of new guest apartments, including framing of a new pitched roof on stone wall head, framing, roughings and finishings.</p>
+        <div class="case-card-tags">
+          <span class="case-card-tag">Joinery</span>
+          <span class="case-card-tag">General Building</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal-overlay" id="modal-bothain" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModalById('modal-bothain')">✕</button>
+      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-body">
+        <h2>Raasay Distillery — Na Bothain</h2>
+        <span class="modal-location">Borodale, Isle of Raasay</span>
+        <p class="modal-desc">Tòrr were contracted to manage the design and construction of five bespoke guest cabins to increase the overnight capacity of Raasay Distillery's guest accommodation. Working with Storey &amp; Co and Skye Designs to develop the design, Tòrr subsequently delivered all groundworks, structure, services and landscaping on a steeply sloping, knotweed-contaminated site beside a working distillery and visitor centre. Works included cabin construction and cladding, gabion retaining structures, fabrication of steel supports and staircases, a district heating scheme, sauna &amp; plunge pool and decking.</p>
+        <div class="modal-services-label">Services</div>
+        <div class="modal-tags">
+          <span class="case-card-tag">Civil Engineering &amp; Groundworks</span>
+          <span class="case-card-tag">Project Management</span>
+          <span class="case-card-tag">General Building &amp; Joinery</span>
+          <span class="case-card-tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-inverarish" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModalById('modal-inverarish')">✕</button>
+      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-body">
+        <h2>Inverarish Social Housing Development</h2>
+        <span class="modal-location">Inverarish, Isle of Raasay</span>
+        <p class="modal-desc">A collaborative project between Tòrr and Raasay Development Trust, with support from Carbon Neutral Islands, Scottish Land Fund and Scottish Government's More Homes. Tòrr purchased two derelict houses and secured grant funding through More Homes to produce building warrant drawings to modern social housing standards. This enabled Raasay Development Trust to secure CNI, Scottish Land Fund and More Homes funding to renovate and include a third house as part of the development. Works include full renovation of three terraced houses, attic conversions, underpinning to create a basement room and installation of air source heat pumps. The houses will become available for affordable rent in perpetuity when complete in late 2026.</p>
+        <div class="modal-services-label">Services</div>
+        <div class="modal-tags">
+          <span class="case-card-tag">Design &amp; Build</span>
+          <span class="case-card-tag">General Building &amp; Joinery</span>
+          <span class="case-card-tag">Civil Engineering &amp; Groundworks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-sconser" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModalById('modal-sconser')">✕</button>
+      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-body">
+        <h2>Sconser Shorebase — Gable End Replacement</h2>
+        <span class="modal-location">Sconser, Isle of Skye</span>
+        <p class="modal-desc">Contracted to demolish a gable end of MOWI's Sconser shorebase to make safe and replace existing damaged blockwork with a steel structure. All steelwork was fabricated and installed in-house, with a new roller shutter door, concrete apron and blockwork completing the rebuild.</p>
+        <div class="modal-services-label">Services</div>
+        <div class="modal-tags">
+          <span class="case-card-tag">Civil Engineering &amp; Groundworks</span>
+          <span class="case-card-tag">Project Management</span>
+          <span class="case-card-tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-millplace" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModalById('modal-millplace')">✕</button>
+      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-body">
+        <h2>10 Mill Place</h2>
+        <span class="modal-location">Isle of Raasay</span>
+        <p class="modal-desc">Tòrr originally priced up the client's own drawing pack but found the design to be prohibitively expensive to construct. We redesigned the project to remove almost half the project value, taking responsibility for all design, approvals, consents and liaising with local authorities. The house was fully stripped back to the walls, with a new ground-bearing floor slab, new timber framing, insulation and windows to deliver a modern, underfloor-heated home.</p>
+        <div class="modal-services-label">Services</div>
+        <div class="modal-tags">
+          <span class="case-card-tag">Design &amp; Build</span>
+          <span class="case-card-tag">General Building &amp; Joinery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-ullinish" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModalById('modal-ullinish')">✕</button>
+      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <div class="modal-body">
+        <h2>Ullinish House</h2>
+        <span class="modal-location">Ullinish, Isle of Skye</span>
+        <p class="modal-desc">Joinery works for new roof and fit-out of new guest apartments for Ullinish House. Works included framing of a new pitched roof on stone wall head, all framing, roughings and finishings, completed in time for guest bookings.</p>
+        <div class="modal-services-label">Services</div>
+        <div class="modal-tags">
+          <span class="case-card-tag">Joinery</span>
+          <span class="case-card-tag">General Building</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Have a project in mind?</h2>
+    <a href="contact.html" class="cta-strip-btn">Get in Touch</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-strip">
+    <a href="index.html" class="logo-footer" aria-label="Tòrr Civils & Building — Home">
+      <img src="images/logo_full_silk.png" alt="Tòrr Civils &amp; Building Ltd" class="logo-wordmark">
+    </a>
+    <span>Tòrr Civils &amp; Building Ltd · Est 2019 · <a href="https://www.torrcb.co.uk">www.torrcb.co.uk</a> · <a href="tel:+441478620330">01478 620330</a> · Registered in Scotland SC621820</span>
+    <span>Specialist civil engineering and building contractor · Highlands &amp; Islands</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) document.getElementById('navDrawer').classList.remove('open');
+    });
+
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeModalById(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+          m.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    function filterCases(filter, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.case-card').forEach(card => {
+        if (filter === 'all') {
+          card.style.display = '';
+          return;
+        }
+        const services = card.dataset.services || '';
+        const map = {
+          civil:    ['civil'],
+          building: ['building'],
+          pm:       ['pm'],
+          joinery:  ['joinery'],
+          fab:      ['fabrication']
+        };
+        const keywords = map[filter] || [filter];
+        const match = keywords.some(k => services.includes(k));
+        card.style.display = match ? '' : 'none';
+      });
+
+      // Keep grid background clean when cards are hidden
+      const grid = document.getElementById('casesGrid');
+      const visible = [...grid.querySelectorAll('.case-card')].filter(c => c.style.display !== 'none');
+      grid.style.background = visible.length ? 'var(--silk-mid)' : 'transparent';
+    }
+  </script>
+
+</body>
+</html>
