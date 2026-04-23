@@ -325,7 +325,7 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, opacity 0.3s;
     }
 
     .case-card:hover { background: #f0ece4; }
@@ -684,7 +684,7 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="section-label">Our Work</div>
-    <h1>Projects we're proud of.</h1>
+    <h1>A snapshot of our portfolio.</h1>
   </div>
 
   <!-- HERO CASE STUDY — Raasay Distillery Warehouses -->
@@ -984,26 +984,32 @@
 
       document.querySelectorAll('.case-card').forEach(card => {
         if (filter === 'all') {
-          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.pointerEvents = '';
+          card.style.position = '';
           return;
         }
-        const services = card.dataset.services || '';
-        const map = {
-          civil:    ['civil'],
-          building: ['building'],
-          pm:       ['pm'],
-          joinery:  ['joinery'],
-          fab:      ['fabrication']
-        };
-        const keywords = map[filter] || [filter];
-        const match = keywords.some(k => services.includes(k));
-        card.style.display = match ? '' : 'none';
-      });
 
-      // Keep grid background clean when cards are hidden
-      const grid = document.getElementById('casesGrid');
-      const visible = [...grid.querySelectorAll('.case-card')].filter(c => c.style.display !== 'none');
-      grid.style.background = visible.length ? 'var(--silk-mid)' : 'transparent';
+        const services = card.dataset.services || '';
+        // Match whole words only to avoid 'civil' matching inside 'building pm civil' incorrectly
+        const tags = services.split(' ');
+        const map = {
+          civil:    'civil',
+          building: 'building',
+          pm:       'pm',
+          joinery:  'joinery',
+        };
+        const keyword = map[filter];
+        const match = keyword ? tags.includes(keyword) : false;
+
+        if (match) {
+          card.style.opacity = '1';
+          card.style.pointerEvents = '';
+        } else {
+          card.style.opacity = '0.15';
+          card.style.pointerEvents = 'none';
+        }
+      });
     }
   </script>
 
