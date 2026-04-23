@@ -310,32 +310,6 @@
     /* ============================================================
        TICKER
     ============================================================ */
-    .ticker {
-      background: var(--copper-grad);
-      padding: 12px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      box-shadow: 0 2px 12px rgba(184,115,51,0.3);
-    }
-
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 22s linear infinite;
-    }
-
-    .ticker-inner span {
-      color: #fff;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0 40px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
 
@@ -560,10 +534,6 @@
       .section-title {
         font-size: 22px;
       }
-
-      .ticker-inner span {
-        padding: 0 24px;
-      }
     }
 
     /* WHY TORR TWO-COLUMN */
@@ -667,12 +637,7 @@
   <!-- ============================================================
        TICKER
   ============================================================ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner">
-      <span>Civil Engineering</span><span>General Building</span><span>Joinery</span><span>Groundworks</span><span>Project Management</span><span>Design &amp; Build</span><span>Hydraulic Hose Assembly</span><span>Fabrication</span>
-      <span>Civil Engineering</span><span>General Building</span><span>Joinery</span><span>Groundworks</span><span>Project Management</span><span>Design &amp; Build</span><span>Hydraulic Hose Assembly</span><span>Fabrication</span>
-    </div>
-  </div>
+  
 
   <!-- ============================================================
        INTRO STRIP
