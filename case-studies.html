@@ -746,9 +746,7 @@
     <!-- Card 2: Inverarish Social Housing -->
     <div class="case-card" data-services="building pm civil" onclick="openModal('inverarish')">
       <div class="case-card-img">
-        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
-          <span>Photo coming soon</span>
-        </div>
+        <img src="images/inverarish_1.jpg" alt="Inverarish Social Housing — timber clad attic conversion">
       </div>
       <div class="case-card-body">
         <h3>Inverarish Social Housing Development</h3>
@@ -849,7 +847,11 @@
   <div class="modal-overlay" id="modal-inverarish" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-inverarish')">✕</button>
-      <div class="modal-img-placeholder"><span>Photos coming soon</span></div>
+      <img class="modal-hero-img" id="inverarish-hero" src="images/inverarish_1.jpg" alt="Inverarish Social Housing — timber clad attic conversion">
+      <div class="modal-gallery">
+        <img src="images/inverarish_1.jpg" alt="Attic conversion — timber cladding and NorDan window" onclick="swapHero('inverarish-hero', this.src, this)">
+        <img src="images/inverarish_2.jpg" alt="Inverarish — exterior view" onclick="swapHero('inverarish-hero', this.src, this)">
+      </div>
       <div class="modal-body">
         <h2>Inverarish Social Housing Development</h2>
         <span class="modal-location">Inverarish, Isle of Raasay</span>
