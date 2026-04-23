@@ -780,9 +780,7 @@
     <!-- Card 4: 10 Mill Place -->
     <div class="case-card" data-services="building pm" onclick="openModal('millplace')">
       <div class="case-card-img">
-        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
-          <span>Photo coming soon</span>
-        </div>
+        <img src="images/mill_place_1.jpg" alt="10 Mill Place — full strip out of 19th century cottage">
       </div>
       <div class="case-card-body">
         <h3>10 Mill Place</h3>
@@ -798,9 +796,7 @@
     <!-- Card 5: Ullinish House -->
     <div class="case-card" data-services="joinery building" onclick="openModal('ullinish')">
       <div class="case-card-img">
-        <div class="img-placeholder" style="min-height:0; aspect-ratio: 4/3;">
-          <span>Photo coming soon</span>
-        </div>
+        <img src="images/ullinish_3.jpg" alt="Ullinish House — completed roof with Velux windows">
       </div>
       <div class="case-card-body">
         <h3>Ullinish House</h3>
@@ -888,7 +884,7 @@
   <div class="modal-overlay" id="modal-millplace" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-millplace')">✕</button>
-      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <img class="modal-hero-img" src="images/mill_place_1.jpg" alt="10 Mill Place — full strip out of 19th century cottage">
       <div class="modal-body">
         <h2>10 Mill Place</h2>
         <span class="modal-location">Isle of Raasay</span>
@@ -905,7 +901,12 @@
   <div class="modal-overlay" id="modal-ullinish" onclick="closeModal(event)">
     <div class="modal">
       <button class="modal-close" onclick="closeModalById('modal-ullinish')">✕</button>
-      <div class="modal-img-placeholder"><span>Photo coming soon</span></div>
+      <img class="modal-hero-img" id="ullinish-hero" src="images/ullinish_3.jpg" alt="Ullinish House — completed roof with Velux windows">
+      <div class="modal-gallery">
+        <img src="images/ullinish_3.jpg" alt="Completed roof with Velux windows" onclick="swapHero('ullinish-hero', this.src, this)">
+        <img src="images/ullinish_1.jpg" alt="New roof framing and insulation" onclick="swapHero('ullinish-hero', this.src, this)">
+        <img src="images/ullinish_2.jpg" alt="Roof structure interior" onclick="swapHero('ullinish-hero', this.src, this)">
+      </div>
       <div class="modal-body">
         <h2>Ullinish House</h2>
         <span class="modal-location">Ullinish, Isle of Skye</span>
