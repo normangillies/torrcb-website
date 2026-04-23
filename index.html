@@ -321,16 +321,18 @@
       border-top: 3px solid;
       border-image: var(--copper-grad) 1;
       border-bottom: 1px solid var(--silk-mid);
-      padding: 52px 48px 52px 10%;
-      display: flex;
-      align-items: center;
+      padding: 52px 48px;
+    }
+
+    .intro-strip-inner {
+      max-width: 860px;
+      padding-left: 0;
     }
 
     .intro-strip p {
       font-size: 17px;
       color: var(--ink-mid);
       line-height: 1.8;
-      max-width: 900px;
     }
 
     .intro-strip p strong {
@@ -467,8 +469,6 @@
 
       /* Intro strip */
       .intro-strip {
-        grid-template-columns: 1fr;
-        gap: 32px;
         padding: 40px 24px;
       }
 
@@ -638,13 +638,14 @@
   ============================================================ -->
   
 
-  <!-- ============================================================
-       INTRO STRIP
+  <!-- v2 -->
   ============================================================ -->
   <section class="intro-strip">
-    <p>
-      Tòrr Civils &amp; Building Ltd are a <strong>multi-discipline main contractor Est. 2019, Isle of Raasay.</strong> We have grown through repeat business and a reputation for delivering pragmatic, sensible solutions across residential, commercial and infrastructure projects.
-    </p>
+    <div class="intro-strip-inner">
+      <p>
+        Tòrr Civils &amp; Building Ltd are a <strong>multi-discipline main contractor Est. 2019, Isle of Raasay.</strong> We have grown through repeat business and a reputation for delivering pragmatic, sensible solutions across residential, commercial and infrastructure projects.
+      </p>
+    </div>
   </section>
 
   <!-- ============================================================
